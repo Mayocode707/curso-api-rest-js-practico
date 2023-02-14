@@ -1,0 +1,19 @@
+{
+  "name": "curso-api-rest-js-practico",
+  "version": "1.0.0",
+  "description": "Proyecto perteneciente al curso de API REST  de JavaScript",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mayocode707/curso-api-rest-js-practico.git"
+  },
+  "author": "Mayocode707",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mayocode707/curso-api-rest-js-practico/issues"
+  },
+  "homepage": "https://github.com/Mayocode707/curso-api-rest-js-practico#readme"
+}
