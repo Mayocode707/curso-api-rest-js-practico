@@ -1,3 +1,892 @@
+
+:root {
+    --lbGlass: rgba(0, 0, 0, .6);
+    --dbGlass: rgba(0, 0, 0, .8);
+    --whiteGlass: rgba(255, 255 ,255, .5);
+    --lowWhite: rgba(255, 255 ,255, .3);
+    --lowWhite2: rgba(255, 255, 255, .15);
+
+    --alatsi: 'Alatsi', sans-serif;
+}
+
+
 body {
-    background-color: gray;
+    
+    /* HOME PARAMETERS */
+    display: grid;
+    grid-template: 75px 5fr 0.7fr 6fr / 1fr;
+    grid-template-areas: "header"
+                        "slideShow"
+                        "categories"
+                        "tends";
+    background-image: url('https://image.tmdb.org/t/p/original/8YFL5QQVPy3AgrEQxNYVSgiPEbe.jpg');
+    background-size: 100%;
+    margin: 0%;
+
+    
+    /* DETAILS PARAMETERS */
+    /* display: grid;
+    grid-template: 7fr 6fr / 1fr;
+    grid-template-areas: "description"
+                        "similar";
+    background-image: url('https://image.tmdb.org/t/p/original/8YFL5QQVPy3AgrEQxNYVSgiPEbe.jpg');
+    background-size: 100%;
+    margin: 0%; */
+
+
+
+     /* FILTER CATEGORY  */
+    /* display: grid;
+    grid-template: 75px 1fr / 1fr;
+    grid-template-areas: "header"
+                        "movies";
+    background-image: url('https://image.tmdb.org/t/p/original/8YFL5QQVPy3AgrEQxNYVSgiPEbe.jpg');
+    background-size: 100%;
+    margin: 0%; */
+
+
+
+}
+
+/*Desktop - Home*/
+
+.header {
+    background-color: var(--lbGlass);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+    justify-self: center;
+    grid-area: header;
+}
+.header__title {
+    color:white;
+    font-family: var(--alatsi);
+    margin-left: 20px;
+}
+
+.header__find {
+    display: flex;
+    width: max-content;
+}
+
+.header__input {
+    margin-right: 0;
+    appearance: none;
+    color: white;
+    text-align: left;
+    font-family: var(--alatsi);
+    font-size: large;
+    background-color: var(--lowWhite2);
+    width: 436px;
+    height: 36px;
+    border-radius: 8px 0 0 8px;
+    padding-left: 10px;
+}
+
+.header__input::placeholder {
+    color: #fff;
+    text-align: center;
+}
+
+.header__btnFind {
+    display: flex;
+    margin-right: 25px;
+    width: 42px;
+    height: 42px;
+    border-radius: 0 8px 8px 0;
+    background-color: var(--lowWhite);
+}
+
+.header__btnFind > i {
+    font-size: 26px;
+    margin: 8px;
+    opacity: 50%;
+}
+
+.header__btnBack {
+    border: 1px solid #fff;
+    border-radius: 20px;
+    width: 140px;
+    height: 64px;
+    padding-top: 10px;
+    font-family: var(--alatsi);
+    color: #fff;
+    font-size: 40px;
+    text-align: center;
+    grid-area: btn;
+    margin: 5px 0 0 5px;
+}
+
+.header__btnBack:hover{
+    background-color: var(--lowWhite);
+}
+
+.header__catTitle {
+    border: 1px solid #fff;
+    border-radius: 20px;
+    width: 140px;
+    height: 64px;
+    padding-top: 10px;
+    font-family: var(--alatsi);
+    color: #fff;
+    font-size: 40px;
+    text-align: center;
+    grid-area: btn;
+    margin: 5px 0 0 5px;
+}
+
+
+
+
+.slideshow {
+    display: flex;
+    grid-area: slideShow;
+    width: 95%;
+    justify-self: center;
+    align-items: end;
+}
+
+.slideshow__title {
+    width: 900px;
+    height: 130px;
+    display: flex;
+    align-items: end;
+
+}
+.slideshow__h1 {
+    color: #fff;
+    font-family: var(--alatsi);
+    margin-left: 20px;
+    font-size: 30px;
+
+}
+
+.categories {
+    display: flex;
+    color: white;
+    justify-content: center;
+    justify-self: center;
+    background-color: var(--dbGlass);
+    width:95%;
+    grid-area: categories;
+}
+
+.category__slot {
+    height: max-content;
+    width:max-content;
+    border: 1px solid;
+    border-color: white;
+    border-radius: 10px;
+    font-family: var(--alatsi);
+    font-size: 20px;
+
+    margin: 4px;
+    padding: 4px;
+    background-color: var(--lowWhite);
+
+    align-self: center;
+    
+}
+
+
+
+.tends {
+    display: grid;
+    grid-template: 66px 450px 30px / 1fr;
+    grid-template-areas: "title"
+                        "movies-tends"
+                        "points";
+
+    background-color: var(--dbGlass);
+    width: 95%;
+    grid-area: tends;
+    justify-self: center;
+    
+    
+}
+
+.tends__title {
+    display: flex;
+    grid-area: title;
+    border: 1px solid;
+    border-color: white;
+    border-radius: 10px;
+    width: 300px;
+    height: 50px;
+    place-self: center center;
+    place-content: center center;
+    
+}
+
+.tends__title > h1 {
+    color: white;
+    margin: 0 0 0 0;
+    font-family: var(--alatsi);
+    font-size: 40px;
+}
+
+.tends__preview {
+    grid-area: movies-tends;
+    background-color: var(--dbGlass);
+    padding: 0 80px 0 80px;
+    display: grid;
+    grid-template: 400px / repeat(20, 267px);
+    gap: 20px;
+    justify-content: start;
+    align-content: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    
+}
+
+.img__color {
+    height: 100%;
+    width: 100%;
+    filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(167deg) brightness(108%) contrast(102%);
+}
+
+.tends__card {
+    display: inline-block;
+    margin-right: 20px;
+    height: 400px;
+    width: 267px;
+    border: 1px solid;
+    border-color: #fff;
+    border-radius: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    
+}
+
+.tends__card > img {
+    width: 100%;
+}
+
+/* Details */
+
+.description {
+    display: grid;
+    grid-template: 130px 1fr / 1.2fr 4fr;
+    grid-template-areas: "btn btn"
+                            "poster details";
+    justify-self: center;
+    background-color: var(--dbGlass);
+    width: 70%;
+    height: 520px;
+    grid-area: description;
+}
+
+.description__btn {
+    border: 1px solid #fff;
+    border-radius: 20px;
+    width: 140px;
+    height: 64px;
+    padding-top: 10px;
+    font-family: var(--alatsi);
+    color: #fff;
+    font-size: 40px;
+    text-align: center;
+    grid-area: btn;
+    margin: 5px 0 0 5px;
+}
+
+.description__btn:hover {
+    background-color: var(--lowWhite);
+}
+
+.description__poster {
+    border: 2px solid #fff;
+    border-radius: 20px;
+    width: 196px;
+    height: 280px;
+    justify-self: center;
+    overflow: hidden;
+    grid-area: poster;
+}
+
+.description__img {
+    width: 100%;
+    height: 100%;
+}
+
+.description__title {
+    color: #fff;
+    font-size: 30px;
+    font-family: var(--alatsi);
+    margin: 0;
+    grid-area: title;
+}
+
+.description__rate {
+    display: grid;
+    grid-template: 1fr 1fr / 1fr;
+    grid-template-areas: "num"
+                        "star";
+    background-color: var(--dbGlass);
+    border: 1px solid #fff;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    font-family: var(--alatsi);
+    color: #fff;
+    grid-area: rate;
+}
+
+.description__rate > h1 {
+    margin: 0;
+    align-self: center;
+    justify-self: center;
+    width: max-content;
+
+}
+
+.num {
+    grid-area: num;
+}
+
+.star {
+    grid-area: star;
+    align-self: start;
+    justify-self: center;
+    font-size: 25px;
+}
+
+.description__tag {
+    border: 1px solid #fff;
+    border-radius: 20px;
+    width: max-content;
+    height: max-content;
+    font-family: var(--alatsi);
+    font-size: 20px;
+    margin: 0 10px 10px 10px;
+    padding: 5px;
+    color: #fff;
+    background-color: var(--dbGlass);
+    grid-area: tags;
+}
+
+.description__details {
+    display: grid;
+    grid-template: 1fr 80px 2fr / 80px 1fr;
+    grid-template-areas: "title title"
+                        "rate tags"
+                        "summary summary";
+}
+
+.description__summary {
+    color: #fff;
+    font-family: var(--alatsi);
+    text-align: justify;
+    width: 96%;
+    height: 95%;
+    margin: 20px 0 0 0;
+    grid-area: summary;
+}
+
+/* Filter Category */
+
+.filterCat {
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr 1fr 1fr 1fr;
+    grid-area: movies;
+    justify-self: center;
+    width: 95%;
+    height: 880px;
+}
+
+.filterCat__movieCard {
+    display: grid;
+    grid-template: 1fr 80px / 1fr;
+    grid-template-areas: "poster"
+                        "title";
+    border: 1px solid #fff;
+    border-radius: 25px;
+    width: 198px;
+    height: 385px;
+    margin-top: 50px;
+    place-self: start center;
+    background-color: var(--dbGlass);
+    overflow: hidden;
+}
+
+.filterCat__movieCard > img {
+    grid-area: poster;
+    width: 100%;
+}
+
+.filterCat__movieCard > h1 {
+    font-family: var(--alatsi);
+    color: #fff;
+    font-size: 15px;
+    text-align: justify;
+    justify-self: center;
+    margin: 8px 8px 0 8px;
+}
+
+/* Finder */
+
+.finder {
+    
+    padding: 30px 0 30px 0;
+    position: absolute;
+    top: 75px;
+    right: 2.5%;
+    background-color: var(--dbGlass);
+    width: 28.7%;
+    height: 100%;
+    margin: 0;
+    z-index: 6;
+    overflow-y: scroll;
+}
+
+.finder__result {
+    display: grid;
+    grid-template: 1fr / 40% 60%;
+    grid-template-areas: "poster info";
+    position: relative;
+    justify-self: center;
+    margin-bottom: 30px;
+    margin-left: 30px;
+    background-color: var(--lowWhite);
+    width: 88%;
+    height: 235px;
+}
+
+.finder__poster {
+    place-self: center;
+    margin: 0;
+    grid-area: poster;
+    width: 140px    
+}
+
+.finder__info {
+    display: grid;
+    grid-template: 1fr 1fr / 1fr;
+    grid-template-areas: "title"
+                        "date";
+    grid-area: info;
+    font-family: var(--alatsi);
+    color: #fff;
+    margin: 0 10px 0 10px;
+}
+
+.finder__title {
+    grid-area: title;
+    align-self: flex-end;
+    margin: 0;
+}
+
+.finder__date {
+    margin: 0;
+    grid-area: date;
+    font-size: 18px;
+}
+
+
+
+.inactive {
+    display: none;
+}
+
+@media (max-width: 400px) {
+    body {
+        /* Home Mobile  */
+        
+        display: grid;
+        grid-template: 150px 5fr 100% / 100%;
+        grid-template-areas: "header"
+                            "tends"
+                            "categories";
+        background-image: url('https://image.tmdb.org/t/p/original/8YFL5QQVPy3AgrEQxNYVSgiPEbe.jpg');
+        background-size: 400%;
+        background-position: center;
+        margin: 0%;
+
+
+        /* Categories Mobile */
+        /* display: grid;
+        grid-template: 640px 1fr / 100%;
+        grid-template-areas: "description"
+                            "similar";
+        margin: 0;
+        background-image: none;
+        background-color: #131313; */
+
+
+        /* FIlter Category  */
+        /* display: grid;
+        grid-template: 150px 1fr / 1fr;
+        grid-template-areas: "header"
+                            "movies";
+        background-image: url('https://image.tmdb.org/t/p/original/8YFL5QQVPy3AgrEQxNYVSgiPEbe.jpg');
+        background-size: 400%;
+        background-position: center;
+        margin: 0%; */
+
+        
+
+
+    }
+
+    /*Home mobile*/
+
+    .header {
+        display: grid;
+        background-color: var(--lbGlass);
+        grid-template: 50px 80px / 1fr;
+        grid-template-areas: "top"
+        "find";
+        width: 100%;
+        grid-area: header;        
+    }
+    .header__title {
+        color:white;
+        font-family: var(--alatsi);
+        margin-left: 20px;
+        font-size: 20px;
+        width: max-content;
+    }
+
+    .header__find {
+        justify-self: center;
+    }
+    
+    .header__input {
+        margin: 0;
+        appearance: none;
+        color: white;
+        text-align: left;
+        font-family: var(--alatsi);
+        font-size: large;
+        background-color: var(--whiteGlass);
+        width: 310px;
+        height: 36px;
+        border-radius: 25px;
+        padding-left: 10px;
+        grid-area: find;
+    }
+
+    .header__input::placeholder {
+        color: #fff;
+        text-align: center;
+    }
+
+    .header__btnFind {
+        display: none;
+    }
+
+    .header__btnBack {
+        border: 1px solid #fff;
+        border-radius: 10px;
+        width: 70px;
+        height: 32px;
+        padding: 10px 15px 0 15px;
+        font-family: var(--alatsi);
+        color: #fff;
+        font-size: 20px;
+        text-align: center;
+        grid-area: poster;
+        margin: 5px 0 0 5px;
+        z-index: 5;
+    }
+
+    .header__catTitle {
+        border: 1px solid #fff;
+        border-radius: 10px;
+        width: 70px;
+        height: 32px;
+        padding: 10px 15px 0 15px;
+        font-family: var(--alatsi);
+        color: #fff;
+        font-size: 20px;
+        text-align: center;
+        grid-area: poster;
+        margin: 5px 0 0 5px;
+        z-index: 5;
+        justify-self: center;
+    }
+
+    .header__btnBack, .header__catTitle {
+        grid-area: top;
+    }
+
+    .slideshow {
+        display: none;
+    }
+    
+    .slideshow__title {
+        display: none;
+    
+    }
+    .slideshow__h1 {
+        display: none;
+    
+    }
+
+    .categories {
+        color: white;
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-content: flex-start;
+        padding-top: 10px;
+        background-color: var(--dbGlass);
+        width:100%;
+        height: max-content;
+        grid-area: categories;
+    }
+    
+    .category__slot {
+        height: max-content;
+        width:max-content;
+        border: 1px solid;
+        border-color: white;
+        border-radius: 10px;
+        font-family: var(--alatsi);
+        font-size: 20px;
+    
+        margin: 8px;
+        padding: 4px;
+        background-color: var(--lowWhite);
+        
+    }
+    
+    .tends {
+        display: grid;
+        grid-template: 40px 280px / 1fr;
+        grid-template-areas: "title"
+                            "movies-tends";
+    
+        background-color: var(--dbGlass);
+        width: 100%;
+        grid-area: tends;
+        justify-self: center;
+        
+        
+    }
+    
+    .tends__title {
+        display: flex;
+        grid-area: title;
+        width: 35%;
+        height: max-content;
+        place-self: center start;
+        align-content: center;
+        border: none;
+        
+    }
+    
+    .tends__title > h1 {
+        color: white;
+        margin: 0 0 0 0;
+        font-family: var(--alatsi);
+        font-size: 20px;
+    }
+    
+    .tends__preview {
+        grid-area: movies-tends;
+        background-color: transparent;
+        padding: 20px 80px 0 20px;
+        display: grid;
+        grid-template: 220px / repeat(20, 148px);
+        gap: 20px;
+        justify-content: start;
+        align-content: start;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        
+    }
+
+    .tends__card {
+        display: inline-block;
+        margin-right: 20px;
+        height: 220px;
+        width: 148px;
+        border: 1px solid;
+        border-color: #fff;
+        border-radius: 20px;
+        white-space: nowrap;
+        overflow: hidden;
+        
+    }
+    
+    .tends__card > img {
+        width: 100%;
+    }
+    
+    /* Details Mobile */
+
+    .description {
+        display: grid;
+        grid-template: 480px 1fr / 1fr;
+        grid-template-areas: "poster"
+                            "details";
+        justify-self: center;
+        background-color: var(--dbGlass);
+        width: 100%;
+        height: 640px;
+        grid-area: description;
+    }
+    
+    .description__btn {
+        border: 1px solid #fff;
+        border-radius: 10px;
+        width: 70px;
+        height: 32px;
+        padding: 10px 15px 0 15px;
+        font-family: var(--alatsi);
+        color: #fff;
+        font-size: 20px;
+        text-align: center;
+        grid-area: poster;
+        margin: 5px 0 0 5px;
+        z-index: 5;
+        
+    }
+    
+    .description__btn:hover {
+        background-color: var(--dbGlass);
+    }
+    
+    .description__poster {
+        border: none;
+        border-radius: none;
+        width: 400px;
+        height: 570px;
+        justify-self: center;
+        overflow: visible;
+        grid-area: poster;
+    }
+    
+    .description__img {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .description__title {
+        color: #fff;
+        font-size: 20px;
+        font-family: var(--alatsi);
+        margin: 110px 15px 0 15px;
+        grid-area: title;
+    }
+    
+    .description__rate {
+        display: grid;
+        grid-template: 1fr 1fr / 1fr;
+        grid-template-areas: "num"
+                            "star";
+        background-color: var(--dbGlass);
+        border: 1px solid #fff;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        font-family: var(--alatsi);
+        color: #fff;
+        justify-self: end;
+        margin: 110px 15px 0 0;
+        grid-area: rate;
+    }
+    
+    .description__rate > h1 {
+        align-self: center;
+        justify-self: center;
+        width: max-content;
+        font-size: 20px;
+    
+    }
+    
+    .num {
+        grid-area: num;
+    }
+    
+    .star {
+        grid-area: star;
+        align-self: start;
+        justify-self: center;
+        font-size: 20px;
+    }
+    
+    .description__tag {
+        border: 1px solid #fff;
+        border-radius: 20px;
+        width: max-content;
+        height: max-content;
+        font-family: var(--alatsi);
+        font-size: 20px;
+        margin: 0 15px 10px 15px;
+        padding: 5px;
+        color: #fff;
+        background-color: var(--dbGlass);
+        grid-area: tags;
+    }
+    
+    .description__details {
+        display: grid;
+        grid-template: 200px 80px 1fr / 320px 80px;
+        grid-template-areas: "title rate"
+                            "tags tags"
+                            "summary summary";
+        /* background-color: var(--dbGlass); */
+        background: linear-gradient(to top, var(--dbGlass) 90%, transparent);
+        width: 400px;
+    }
+    
+    .description__summary {
+        color: #fff;
+        font-family: var(--alatsi);
+        text-align: justify;
+        width: 370px;
+        height: max-content;
+        margin: 0 15px 15px 15px;
+        grid-area: summary;
+    }
+
+    /* Filter Category */
+
+    .filterCat {
+        display: grid;
+        grid-template: 1fr 1fr 1fr 1fr 1fr/ 1fr 1fr;
+        grid-area: movies;
+        justify-self: center;
+        width: 100%;
+        height: 880px;
+    }
+    
+    .filterCat__movieCard {
+        display: grid;
+        grid-template: 1fr / 1fr;
+        grid-template-areas: "poster"
+                            "title";
+        border: 1px solid #fff;
+        border-radius: 25px;
+        width: 178px;
+        height: 274px;
+        margin: 10px 6px 10px 6px;
+        place-self: start center;
+        background-color: var(--dbGlass);
+        overflow: hidden;
+    }
+    
+    .filterCat__movieCard > img {
+        grid-area: poster;
+        width: 100%;
+    }
+    
+    .filterCat__movieCard > h1 {
+        font-family: var(--alatsi);
+        color: #fff;
+        font-size: 15px;
+        text-align: justify;
+        justify-self: center;
+        margin: 8px 8px 0 8px;
+        display: none;
+    }
+
+    /******************/
+
+    .inactive {
+        display: none;
+    }
 }
