@@ -14,11 +14,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./styles/app.css">
 </head>
-<body>
+<body class="homeGrid">
     
         <header class="header">
             <h1 class="header__title">BIBLIOFILM APP</h1>
-            <span class="header__btnBack inactive">Volver</span>
+            <span class="header__btnBack inactive" onclick="returnHome()">Volver</span>
             <span class="header__catTitle inactive">Accion</span>
             <div class="header__find">
                 <input type="text" name="" class="header__input" placeholder="Buscar"> 
@@ -113,7 +113,7 @@
 
         <!-- Details -->
         <section class="description inactive">
-            <span class="description__btn">Volver</span>
+            <span class="description__btn" onclick="returnHome()">Volver</span>
             <div class="description__poster">
                 <img src="https://image.tmdb.org/t/p/original//t6HIqrRAclMCA60NsSmeqe9RmNV.jpg" alt="" class="description__img">
             </div>
@@ -177,7 +177,7 @@
         <!-- end Filter Category -->
 
         <!-- Finder -->
-        <section class="finder">
+        <section class="finder inactive">
             <div class="finder__result">
                 <div class="finder__poster">
                     <img src="https://image.tmdb.org/t/p/original//t6HIqrRAclMCA60NsSmeqe9RmNV.jpg" alt="" class="description__img">
@@ -247,7 +247,9 @@
 
 
     <script src="./src/secrets.js"></script>
+    <script src="./src/nodes.js"></script>
     <script src="./src/main.js"></script>
+    <script src="./src/navigation.js"></script>
     
     
 </body>

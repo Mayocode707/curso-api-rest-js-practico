@@ -13,7 +13,7 @@
 body {
     
     /* HOME PARAMETERS */
-    display: grid;
+    /* display: grid;
     grid-template: 75px 5fr 0.7fr 6fr / 1fr;
     grid-template-areas: "header"
                         "slideShow"
@@ -21,7 +21,7 @@ body {
                         "tends";
     background-image: url('https://image.tmdb.org/t/p/original/8YFL5QQVPy3AgrEQxNYVSgiPEbe.jpg');
     background-size: 100%;
-    margin: 0%;
+    margin: 0%; */
 
     
     /* DETAILS PARAMETERS */
@@ -46,6 +46,38 @@ body {
 
 
 
+}
+
+.homeGrid {
+    display: grid;
+    grid-template: 75px 5fr 0.7fr 6fr / 1fr;
+    grid-template-areas: "header"
+                        "slideShow"
+                        "categories"
+                        "tends";
+    background-image: url('https://image.tmdb.org/t/p/original/8YFL5QQVPy3AgrEQxNYVSgiPEbe.jpg');
+    background-size: 100%;
+    margin: 0%;
+}
+
+.detailsGrid {
+    display: grid;
+    grid-template: 5.7fr 6fr / 1fr;
+    grid-template-areas: "description"
+                        "tends";
+    background-image: url('https://image.tmdb.org/t/p/original/8YFL5QQVPy3AgrEQxNYVSgiPEbe.jpg');
+    background-size: 100%;
+    margin: 0%;
+}
+
+.categoryGrid {
+    display: grid;
+    grid-template: 75px 1fr / 1fr;
+    grid-template-areas: "header"
+                        "movies";
+    background-image: url('https://image.tmdb.org/t/p/original/8YFL5QQVPy3AgrEQxNYVSgiPEbe.jpg');
+    background-size: 100%;
+    margin: 0%;
 }
 
 /*Desktop - Home*/
@@ -493,7 +525,7 @@ body {
     body {
         /* Home Mobile  */
         
-        display: grid;
+        /* display: grid;
         grid-template: 150px 5fr 100% / 100%;
         grid-template-areas: "header"
                             "tends"
@@ -501,7 +533,7 @@ body {
         background-image: url('https://image.tmdb.org/t/p/original/8YFL5QQVPy3AgrEQxNYVSgiPEbe.jpg');
         background-size: 400%;
         background-position: center;
-        margin: 0%;
+        margin: 0%; */
 
 
         /* Categories Mobile */
@@ -527,6 +559,39 @@ body {
         
 
 
+    }
+
+    .homeGrid {
+        display: grid;
+        grid-template: 150px 5fr 100% / 100%;
+        grid-template-areas: "header"
+                            "tends"
+                            "categories";
+        background-image: url('https://image.tmdb.org/t/p/original/8YFL5QQVPy3AgrEQxNYVSgiPEbe.jpg');
+        background-size: 400%;
+        background-position: center;
+        margin: 0%;
+    }
+
+    .detailsGrid {
+        display: grid;
+        grid-template: 640px 1fr / 100%;
+        grid-template-areas: "description"
+                            "similar";
+        margin: 0;
+        background-image: none;
+        background-color: #131313;
+    }
+
+    .categoryGrid {
+        display: grid;
+        grid-template: 150px 1fr / 1fr;
+        grid-template-areas: "header"
+                            "movies";
+        background-image: url('https://image.tmdb.org/t/p/original/8YFL5QQVPy3AgrEQxNYVSgiPEbe.jpg');
+        background-size: 400%;
+        background-position: center;
+        margin: 0%;
     }
 
     /*Home mobile*/
