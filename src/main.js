@@ -4,6 +4,18 @@ async function getTrendingMoviesPreview() {
 
     const movies = data.results;
     const sinopsis = data.results[0].overview;
+    tends__preview.innerHTML = "";
+
+    movies.forEach(movie => {
+        const tendCard = document.createElement('div');
+        const posterImg = document.createElement('img');
+        tendCard.classList.add('tends__card');
+        posterImg.setAttribute('alt' , movie.title);
+        posterImg.setAttribute('src' , 'https://image.tmdb.org/t/p/original' + movie.poster_path);
+        tendCard.appendChild(posterImg);
+        tends__preview.appendChild(tendCard);
+        console.log(movie.poster_path);
+    });
     
     console.log({data, movies});
     //console.log(sinopsis);
