@@ -47,13 +47,11 @@ async function getCategories() {
 }
 
 async function getMovieByCategory(id) {
-    // const res = await fetch('http://api.themoviedb.org/3/discover/movie?with__genres=?api_key=' + API_KEY);
     const res = await fetch(`http://api.themoviedb.org/3/discover/movie?with_genres=${id}&api_key=${API_KEY}&language=es`);
     const data = await res.json();
 
     const movies = data.results;
     filterCat.innerHTML = "";
-    console.log(movies);
 
     movies.forEach(movie => {
         const movieCard = document.createElement('div');
@@ -69,3 +67,8 @@ async function getMovieByCategory(id) {
     });
 
 }
+
+header__btnFind.addEventListener('click' , () => {
+    location.hash = '#search=' + header__input.value;
+
+})
