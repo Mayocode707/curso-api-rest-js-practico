@@ -112,3 +112,10 @@ header__btnFind.addEventListener('click' , () => {
     location.hash = '#search=' + header__input.value;
 
 })
+
+
+document.addEventListener("keyup", function(event) {
+    if (event.code === 'Enter') {
+        location.hash = '#search=' + header__input.value;
+    }
+});
