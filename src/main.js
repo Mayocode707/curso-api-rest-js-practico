@@ -7,6 +7,7 @@ async function getTrendingMoviesPreview() {
     tends__preview.innerHTML = "";
 
     movies.forEach(movie => {
+        
         const tendCard = document.createElement('div');
         const posterImg = document.createElement('img');
         tendCard.classList.add('tends__card');
@@ -15,6 +16,9 @@ async function getTrendingMoviesPreview() {
         tendCard.appendChild(posterImg);
         tends__preview.appendChild(tendCard);
         console.log(movie.poster_path);
+        tendCard.addEventListener('click', () => {
+            location.hash = `#details=${movie.id}`;
+        });
     });
     
     // console.log({data, movies});
@@ -106,6 +110,43 @@ async function getMoviesBySearch(query) {
         finder.appendChild(finder__result);
     });
 
+}
+
+async function getMovieById(id){
+    const res = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=es`);
+    const data = await res.json();
+    const moviesGen = data.genres;
+    console.log(data);
+    console.log(moviesGen);
+    description__tagsContainer.innerHTML = '';
+    description__img.setAttribute('src' , '');
+
+
+    // const description__title = document.createElement('h1');
+    // description__title.classList.add('description__title');
+    // const description__rate = document.createElement('dic');
+    // description__rate.classList.add('description__rate');
+
+
+    description__title.innerHTML = data.title;
+    description__rate.innerHTML = data.vote_average.toFixed(1);
+    description__summary.innerHTML = data.overview;
+    description__img.setAttribute('src' , 'https://image.tmdb.org/t/p/original' + data.poster_path);
+
+
+    moviesGen.forEach(movieGen => {
+        const description__tag = document.createElement('div');
+        description__tag.classList.add('description__tag');
+        description__tag.innerHTML = movieGen.name;
+        description__tag.addEventListener('click', () => {
+            location.hash=`#category=${movieGen.id}-${movieGen.name}`;
+            header__catTitle.innerHTML = movieGen.name;
+            getMovieByCategory(movieGen.id);
+        })
+        description__tagsContainer.appendChild(description__tag);
+
+
+    })
 }
 
 header__btnFind.addEventListener('click' , () => {
