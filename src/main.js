@@ -83,37 +83,52 @@ async function getMoviesBySearch(query) {
     const data = await res.json();
 
     const movies = data.results;
+
+    console.log("REsultados de busqueda");
+    console.log(movies);
     finder.innerHTML = "";
 
-    movies.forEach(movie => {
-        const finder__result = document.createElement('div');
-        const finder__poster = document.createElement('div');
-        const poster = document.createElement('img');
-        const finder__info = document.createElement('div');
-        const finder__title = document.createElement('h1');
-        const finder__date = document.createElement('h3');
+    if(movies.length===0) {
+        console.log("No se encontro nada")
+    } else {
+        movies.forEach(movie => {
+            const finder__result = document.createElement('div');
+            const finder__poster = document.createElement('div');
+            const poster = document.createElement('img');
+            const finder__info = document.createElement('div');
+            const finder__title = document.createElement('h1');
+            const finder__date = document.createElement('h3');
+    
+            finder__result.classList.add('finder__result');
+            finder__poster.classList.add('finder__poster');
+            poster.classList.add('description__img');
+    
+            poster.setAttribute('alt' , movie.title);
+            poster.setAttribute('src' , 'https://image.tmdb.org/t/p/original' + movie.poster_path);
+    
+            finder__info.classList.add('finder__info');
+            finder__title.classList.add('finder__title');
+            finder__date.classList.add('finder__date');
+            finder__title.innerHTML = movie.title;
+            finder__date.innerHTML = movie.release_date;
+    
+            finder__poster.appendChild(poster);
+            finder__info.appendChild(finder__title);
+            finder__info.appendChild(finder__date);
+    
+            finder__result.appendChild(finder__poster);
+            finder__result.appendChild(finder__info);
+            finder__result.addEventListener('click', () => {
+                location.hash = `#details=${movie.id}`;
+                header__input.value = "";
+            })
+            finder.appendChild(finder__result);
+        });
+    }
 
-        finder__result.classList.add('finder__result');
-        finder__poster.classList.add('finder__poster');
-        poster.classList.add('description__img');
+    
 
-        poster.setAttribute('alt' , movie.title);
-        poster.setAttribute('src' , 'https://image.tmdb.org/t/p/original' + movie.poster_path);
-
-        finder__info.classList.add('finder__info');
-        finder__title.classList.add('finder__title');
-        finder__date.classList.add('finder__date');
-        finder__title.innerHTML = movie.title;
-        finder__date.innerHTML = movie.release_date;
-
-        finder__poster.appendChild(poster);
-        finder__info.appendChild(finder__title);
-        finder__info.appendChild(finder__date);
-
-        finder__result.appendChild(finder__poster);
-        finder__result.appendChild(finder__info);
-        finder.appendChild(finder__result);
-    });
+    
 
 }
 
@@ -181,13 +196,15 @@ async function getRelatedMovieID(id){
 }
 
 header__btnFind.addEventListener('click' , () => {
-    location.hash = '#search=' + header__input.value;
+    // location.hash = '#search=' + header__input.value;
+    searchPage(header__input.value);
 
 })
 
 
 document.addEventListener("keyup", function(event) {
     if (event.code === 'Enter') {
-        location.hash = '#search=' + header__input.value;
+        // location.hash = '#search=' + header__input.value;
+        searchPage(header__input.value);
     }
 });
